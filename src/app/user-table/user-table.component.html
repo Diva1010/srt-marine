@@ -1,0 +1,32 @@
+<div class="user-table">
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filter..." #input>
+  </mat-form-field>
+
+<div class="mat-elevation-z8">
+<table mat-table [dataSource]="users" matSort>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name.title}} {{element.name.first}} {{element.name.last}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+     <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+        (click)="showUserDetails(row)"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="2">No data matching the filter "{{input.value}}"</td>
+      </tr>
+</table>
+
+<mat-paginator [length]="length"  [pageSizeOptions]="[5, 10, 25, 100]" [pageIndex]="pageIndex"
+[pageSize]="10" (page)="handlePageChangeEvent($event)" 
+[disabled]="disabled" aria-label="Select page of users"></mat-paginator>
+</div>
+</div>

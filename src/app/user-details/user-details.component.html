@@ -1,0 +1,16 @@
+<div class="details-body">
+    <div class="returnToHome"><a [routerLink]="['/users']">Return To User List</a></div>
+    <mat-card class="details-card">
+        <mat-card-header>
+          <div mat-card-avatar class="details-header-image"></div>
+          <mat-card-title>{{user.name.title}} {{user.name.first}} {{user.name.last}}</mat-card-title>
+          <mat-card-subtitle>{{user.gender}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=" alt="User image">
+        <mat-card-content>
+            <div class="email">Email : {{user.email}}</div>
+            <div class="phone">Phone : {{user.phone}}</div>
+        </mat-card-content>
+      </mat-card>
+</div>
+
